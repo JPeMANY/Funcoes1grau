@@ -21,27 +21,43 @@ function menosLaranja() {
 }
 
 
-// Função para inicializar os contadores a partir do armazenamento local ou definir como zero se não houver valor armazenado
+// Função para inicializar os contadores a partir dos cookies ou definir como zero se não houver cookie
 function inicializarContadores() {
-    // Verifica se há valores armazenados para os contadores
-    if (localStorage.getItem('contadorVerde') !== null) {
-        ContadorVerde.textContent = localStorage.getItem('contadorVerde');
-    } else {
-        ContadorVerde.textContent = 0;
-    }
-    
-    if (localStorage.getItem('contadorLaranja') !== null) {
-        ContadorLaranja.textContent = localStorage.getItem('contadorLaranja');
-    } else {
-        ContadorLaranja.textContent = 0;
-    }
+    // Verifica se há cookies para os contadores
+    ContadorVerde.textContent = getCookie('contadorVerde') || 0;
+    ContadorLaranja.textContent = getCookie('contadorLaranja') || 0;
 }
 
-// Função para atualizar o contador e armazenar o novo valor no localStorage
+// Função para atualizar o contador e armazenar o novo valor em um cookie
 function atualizarContador(elemento, incremento) {
     elemento.textContent = parseInt(elemento.textContent) + incremento;
-    // Salva o novo valor no armazenamento local
-    localStorage.setItem(elemento.id, elemento.textContent);
+    // Salva o novo valor em um cookie
+    setCookie(elemento.id, elemento.textContent, 365);
+}
+
+// Função para criar um cookie
+function setCookie(nome, valor, dias) {
+    var data = new Date();
+    data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + data.toUTCString();
+    document.cookie = nome + "=" + valor + ";" + expires + ";path=/";
+}
+
+// Função para obter o valor de um cookie
+function getCookie(nome) {
+    var name = nome + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookies = decodedCookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+    return "";
 }
 
 // Chamada para inicializar os contadores quando a página é carregada
