@@ -1,0 +1,98 @@
+* {
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+.equipeVerde, .equipeLaranja {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.equipeVerde { 
+    background-color: #318f9a;
+    border-right: solid 3px white;
+}
+
+.equipeLaranja {
+    background-color: #ff8811;
+    border-left: solid 3px white;
+}
+
+.mostrador {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h2, h3 {
+    color: white;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 140px;
+}
+
+h3 {
+    position: fixed;
+    top: 25px;
+    
+}
+
+.botoes {
+    width: 100%;
+    height: 25%;
+    background-color: #ffffff79;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    color: white;
+    border: solid 4px white;
+    margin: 5px;
+    height: 130px;
+    width: 130px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.mais {
+    background-color: #ffffff;
+    border-radius: 25%;
+}
+
+.menosVerde, .menosLaranja {
+    border-radius: 50%;
+    margin-left: 40px;
+}
+
+.menosVerde {
+    background-color: #318f9a;
+}
+
+.menosLaranja {
+    background-color: #ff8811;
+}
+
+.btverde {
+    color: #318f9a;
+}
+
+.btlaranja {
+    color: #ff8811;
+}
+
