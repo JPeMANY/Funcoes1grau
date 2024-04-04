@@ -1,63 +1,49 @@
 let ContadorVerde = document.getElementById("verde");
 let ContadorLaranja = document.getElementById("laranja");
 
-ContadorVerde.innerHTML = 0;
-ContadorLaranja.innerHTML = 0;
+ContadorVerde.textContent = 0;
+ContadorLaranja.textContent = 0;
 
 function maisVerde() {
-    ContadorVerde.innerHTML ++;
+    ContadorVerde.textContent = parseInt(ContadorVerde.textContent) + 1;
 }
 
 function menosVerde() {
-    ContadorVerde.innerHTML --;
+    ContadorVerde.textContent = parseInt(ContadorVerde.textContent) - 1;
 }
 
 function maisLaranja() {
-    ContadorLaranja.innerHTML ++;
+    ContadorLaranja.textContent = parseInt(ContadorLaranja.textContent) + 1;
 }
 
 function menosLaranja() {
-    ContadorLaranja.innerHTML --;
+    ContadorLaranja.textContent = parseInt(ContadorLaranja.textContent) - 1;
 }
 
 
-// Função para inicializar os contadores a partir dos cookies ou definir como zero se não houver cookie
+window.addEventListener('beforeunload', function (e) {
+    var message = 'Deseja reiniciar? Os dados serão perdidos.';
+    e.returnValue = message;
+    return message;
+});
+
+// Função para inicializar os contadores a partir dos parâmetros da URL ou definir como zero se não houver parâmetros
 function inicializarContadores() {
-    // Verifica se há cookies para os contadores
-    ContadorVerde.textContent = getCookie('contadorVerde') || 0;
-    ContadorLaranja.textContent = getCookie('contadorLaranja') || 0;
+    // Obtem os parâmetros da URL
+    const params = new URLSearchParams(window.location.search);
+    // Verifica se há parâmetros para os contadores
+    ContadorVerde.textContent = params.get('contadorVerde') || 0;
+    ContadorLaranja.textContent = params.get('contadorLaranja') || 0;
 }
 
-// Função para atualizar o contador e armazenar o novo valor em um cookie
+// Função para atualizar o contador e atualizar a URL com os novos valores dos contadores
 function atualizarContador(elemento, incremento) {
     elemento.textContent = parseInt(elemento.textContent) + incremento;
-    // Salva o novo valor em um cookie
-    setCookie(elemento.id, elemento.textContent, 365);
-}
-
-// Função para criar um cookie
-function setCookie(nome, valor, dias) {
-    var data = new Date();
-    data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + data.toUTCString();
-    document.cookie = nome + "=" + valor + ";" + expires + ";path=/";
-}
-
-// Função para obter o valor de um cookie
-function getCookie(nome) {
-    var name = nome + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var cookies = decodedCookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        while (cookie.charAt(0) == ' ') {
-            cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(name) == 0) {
-            return cookie.substring(name.length, cookie.length);
-        }
-    }
-    return "";
+    // Obtém os valores atualizados dos contadores
+    const novoContadorVerde = ContadorVerde.textContent;
+    const novoContadorLaranja = ContadorLaranja.textContent;
+    // Atualiza a URL com os novos valores dos contadores
+    history.replaceState(null, null, `?contadorVerde=${novoContadorVerde}&contadorLaranja=${novoContadorLaranja}`);
 }
 
 // Chamada para inicializar os contadores quando a página é carregada
