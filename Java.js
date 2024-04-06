@@ -21,9 +21,17 @@ function menosLaranja() {
 }
 
 
-window.addEventListener('beforeunload', function (e) {
-    var message = 'Tem certeza que deseja sair? Os dados não salvos serão perdidos.';
-    e.returnValue = message;
-    return message;
-});
+function apito() {
+    let audio = document.getElementById('player');
+    audio.play();
+};
 
+// Função para desabilitar o botão
+function disableButton(buttonId) {
+    document.getElementById(buttonId).disabled = true;
+}
+
+// Função para habilitar o botão
+function enableButton(buttonId) {
+    document.getElementById(buttonId).disabled = false;
+}
