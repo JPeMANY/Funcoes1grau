@@ -27,8 +27,8 @@ function apito() {
 };
 
 // Função para desabilitar o botão
-function disableButton(buttonId) {
-    document.getElementById(buttonId).disabled = true;
+function disableButton() {
+    document.getElementById("botaoAcaoLarabja").disabled = true;
 }
 
 // Função para habilitar o botão
