@@ -12,18 +12,45 @@
     <title>Quiz Funções de 1° Grau</title>
 </head>
 <body>
+    <div class="telaAcao">
 
-    <div class="equipeVerde">
-        <div class="tela">
-            <div class="areaAcao">
-                <button class="botaoAcaoVerde" onclick="apito(); disableButton('botaoAcaoLaranja');">Botão Verde</button>
-                <button class="Reiniciar" onclick="enableButton('botaoAcaoLaranja');">Reiniciar</button>
-            </div>
+        <div class="equipeVerde">
+            <div class="tela">
+                <div class="areaAcao">
+                    <button class="botaoAcaoVerde" onclick="apito(); disableButton('botaoAcaoLaranja');"></button>
+                    <button class="Reiniciar" onclick="enableButton('botaoAcaoLaranja');">Reiniciar</button>
+                </div>
 
             <div class="mostrador">
                 <h3>Equipe Verde</h3>
                 <h2 id="verde">erro</h2>
             </div>
+        </div>
+
+        <div class="equipeLaranja">
+            <div class="tela">
+                <div class="mostrador">
+                    <h3>Equipe Laranja</h3>
+                    <h2 id="laranja">erro</h2>
+                </div>
+
+                <div class="areaAcao">
+                    <button class="botaoAcaoLaranja" onclick="apito()"></button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="telaBotoes">
+
+
+
+        <div class="botoes">
+            <button class="btn btlaranja mais" onclick="maisLaranja()">+</button>
+            <button class="btn menosLaranja" onclick="menosLaranja()">-</button>
         </div>
 
         <div class="botoes">
@@ -32,25 +59,11 @@
         </div>
     </div>
 
+</div>
 
 
-    <div class="equipeLaranja">
-        <div class="tela">
-            <div class="mostrador">
-                <h3>Equipe Laranja</h3>
-                <h2 id="laranja">erro</h2>
-            </div>
 
-            <div class="areaAcao">
-                <button class="botaoAcaoLaranja" onclick="apito()"></button>
-            </div>
-        </div>
 
-        <div class="botoes">
-            <button class="btn btlaranja mais" onclick="maisLaranja()">+</button>
-            <button class="btn menosLaranja" onclick="menosLaranja()">-</button>
-        </div>
-    </div>
   
       <audio  id="player">
         <source src="apito.mp3" type="audio/mp3"></audio>

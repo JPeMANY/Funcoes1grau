@@ -24,14 +24,24 @@ function menosLaranja() {
 function apito() {
     let audio = document.getElementById('player');
     audio.play();
+    console.log("Som de apito!");
 };
 
-// Função para desabilitar o botão
+
+
+let botoesInferiores = document.querySelectorAll(".btn");
+botoesInferiores.forEach(function(botao) {
+    botao.disabled = true;
+});
+
+
+
+let botaoId;
 function disableButton(buttonId) {
-    document.getElementById(buttonId).disabled = true;
+    document.getElementsByClassName(buttonId)[0].disabled = true;
 }
 
-// Função para habilitar o botão
+
 function enableButton(buttonId) {
-    document.getElementById(buttonId).disabled = false;
+    document.getElementsByClassName(buttonId)[0].disabled = false;
 }
