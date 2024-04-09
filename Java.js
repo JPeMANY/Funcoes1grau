@@ -38,12 +38,16 @@ botoesInferiores.forEach(function(botao) {
 
 function desabilitarLaranja() {
     document.getElementsByClassName("botaoAcaoLaranja")[0].disabled = true;
+    document.getElementsByClassName("btnLaranja")[0].disabled = true;
+    document.getElementsByClassName("btnLaranja")[1].disabled = true;
     document.getElementsByClassName("btnVerde")[0].disabled = false;
     document.getElementsByClassName("btnVerde")[1].disabled = false;
 }
 
 function desabilitarVerde() {
     document.getElementsByClassName("botaoAcaoVerde")[0].disabled = true;
+    document.getElementsByClassName("btnVerde")[0].disabled = true;
+    document.getElementsByClassName("btnVerde")[1].disabled = true;
     document.getElementsByClassName("btnLaranja")[0].disabled = false;
     document.getElementsByClassName("btnLaranja")[1].disabled = false;
 }
