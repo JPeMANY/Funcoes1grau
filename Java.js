@@ -29,19 +29,30 @@ function apito() {
 
 
 
-let botoesInferiores = document.querySelectorAll(".btn");
+let botoesInferiores = document.querySelectorAll("#btn");
 botoesInferiores.forEach(function(botao) {
     botao.disabled = true;
 });
 
 
 
-let botaoId;
-function disableButton(buttonId) {
-    document.getElementsByClassName(buttonId)[0].disabled = true;
+function desabilitarLaranja() {
+    document.getElementsByClassName("botaoAcaoLaranja")[0].disabled = true;
+    document.getElementsByClassName("btnVerde")[0].disabled = false;
+    document.getElementsByClassName("btnVerde")[1].disabled = false;
 }
 
+function desabilitarVerde() {
+    document.getElementsByClassName("botaoAcaoVerde")[0].disabled = true;
+    document.getElementsByClassName("btnLaranja")[0].disabled = false;
+    document.getElementsByClassName("btnLaranja")[1].disabled = false;
+}
 
-function enableButton(buttonId) {
-    document.getElementsByClassName(buttonId)[0].disabled = false;
+function Reiniciar() {
+    document.getElementsByClassName("botaoAcaoLaranja")[0].disabled = false;
+    document.getElementsByClassName("btnVerde")[0].disabled = false;
+    document.getElementsByClassName("btnVerde")[1].disabled = false;
+    document.getElementsByClassName("botaoAcaoVerde")[0].disabled = false;
+    document.getElementsByClassName("btnLaranja")[0].disabled = false;
+    document.getElementsByClassName("btnLaranja")[1].disabled = false;
 }
