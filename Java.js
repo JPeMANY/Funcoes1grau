@@ -24,7 +24,6 @@ function menosLaranja() {
 function apito() {
     let audio = document.getElementById('player');
     audio.play();
-    console.log("Som de apito!");
 };
 
 
@@ -36,27 +35,49 @@ botoesInferiores.forEach(function(botao) {
 
 
 
+let botaoAcaoLaranja = document.getElementsByClassName("botaoAcaoLaranja")[0];
+let btnLaranja1 = document.getElementsByClassName("btnLaranja")[0];
+let btnLaranja2 = document.getElementsByClassName("btnLaranja")[1];
+let botaoAcaoVerde = document.getElementsByClassName("botaoAcaoVerde")[0];
+let btnVerde1 = document.getElementsByClassName("btnVerde")[0];
+let btnVerde2 = document.getElementsByClassName("btnVerde")[1];
+
+// Botão Verde;
 function desabilitarLaranja() {
-    document.getElementsByClassName("botaoAcaoLaranja")[0].disabled = true;
-    document.getElementsByClassName("btnLaranja")[0].disabled = true;
-    document.getElementsByClassName("btnLaranja")[1].disabled = true;
-    document.getElementsByClassName("btnVerde")[0].disabled = false;
-    document.getElementsByClassName("btnVerde")[1].disabled = false;
+    btnVerde1.disabled = false;
+    btnVerde2.disabled = false;
+
+    botaoAcaoLaranja.disabled = true;
+    btnLaranja1.disabled = true;
+    btnLaranja2.disabled = true;
 }
 
+// Botão Laranja;
 function desabilitarVerde() {
-    document.getElementsByClassName("botaoAcaoVerde")[0].disabled = true;
-    document.getElementsByClassName("btnVerde")[0].disabled = true;
-    document.getElementsByClassName("btnVerde")[1].disabled = true;
-    document.getElementsByClassName("btnLaranja")[0].disabled = false;
-    document.getElementsByClassName("btnLaranja")[1].disabled = false;
+    botaoAcaoVerde.disabled = true;
+    btnVerde1.disabled = true;
+    btnVerde2.disabled = true;
+
+    btnLaranja1.disabled = false;
+    btnLaranja2.disabled = false;
 }
 
 function Reiniciar() {
-    document.getElementsByClassName("botaoAcaoLaranja")[0].disabled = false;
-    document.getElementsByClassName("btnVerde")[0].disabled = true;
-    document.getElementsByClassName("btnVerde")[1].disabled = true;
-    document.getElementsByClassName("botaoAcaoVerde")[0].disabled = false;
-    document.getElementsByClassName("btnLaranja")[0].disabled = true;
-    document.getElementsByClassName("btnLaranja")[1].disabled = true;
+    botaoAcaoVerde.disabled = false;
+    btnVerde1.disabled = true;
+    btnVerde2.disabled = true;
+
+    botaoAcaoLaranja.disabled = false;
+    btnLaranja1.disabled = true;
+    btnLaranja2.disabled = true;
+}
+
+function Desbloquear() {
+    botaoAcaoVerde.disabled = true;
+    btnVerde1.disabled = false;
+    btnVerde2.disabled = false;
+
+    botaoAcaoLaranja.disabled = true;
+    btnLaranja1.disabled = false;
+    btnLaranja2.disabled = false;
 }
