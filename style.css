@@ -1,3 +1,8 @@
+::root {
+    --cor1: #1180ff;
+    --cor2: #e02c2c;
+}
+
 * {
     font-family: "Lato", sans-serif;
     margin: 0;
@@ -40,12 +45,12 @@ body {
 }
 
 .equipeVerde { 
-    background-color: #e02c2c;
+    background-color: var(--cor1);
     border-right: solid 3px white;
 }
 
 .equipeLaranja {
-    background-color: #1180ff;
+    background-color: var(--cor2);
     border-left: solid 3px white;
 }
 
@@ -110,11 +115,11 @@ h3 {
 }
 
 .btnVerde {
-    color: #e02c2c;
+    color: var(--cor1);
 }
 
 .btnLaranja {
-    color: #1180ff;
+    color: var(--cor2);
 }
 
 .botaoAcaoVerde, .botaoAcaoLaranja {
