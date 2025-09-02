@@ -40,12 +40,12 @@ body {
 }
 
 .equipeVerde { 
-    background-color: #318f9a;
+    background-color: #e02c2c;
     border-right: solid 3px white;
 }
 
 .equipeLaranja {
-    background-color: #ff8811;
+    background-color: #1180ff;
     border-left: solid 3px white;
 }
 
@@ -110,11 +110,11 @@ h3 {
 }
 
 .btnVerde {
-    color: #318f9a;
+    color: #e02c2c;
 }
 
 .btnLaranja {
-    color: #ff8811;
+    color: #1180ff;
 }
 
 .botaoAcaoVerde, .botaoAcaoLaranja {
